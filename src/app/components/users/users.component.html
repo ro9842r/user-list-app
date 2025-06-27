@@ -1,0 +1,47 @@
+<app-header></app-header>
+<div class="container p-4 mx-auto max-w-7xl gap-6">
+  <div class="mb-6">
+    <div class="relative">
+      <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+        <i class="pi pi-search text-gray-400"></i>
+      </span>
+      <input
+        type="text"
+        pInputText
+        formControlName="text"
+        placeholder="Search for name"
+        (input)="onSearch($event)"
+      />
+    </div>
+  </div>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-2">
+    <p-card
+      *ngFor="let user of users$ | async"
+      class="shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white rounded-lg"
+    >
+      <div class="p-4 flex items-start space-x-4">
+        <div class="flex-shrink-0">
+          <i class="pi pi-user text-2xl text-blue-500"></i>
+        </div>
+        <div class="flex-1">
+          <h2 class="text-lg font-semibold text-gray-800 flex items-center">
+            <i class="pi pi-id-card text-blue-400 mr-2"></i>
+            {{ user.name }}
+          </h2>
+          <p class="text-gray-600 flex items-center">
+            <i class="pi pi-at text-blue-400 mr-2"></i>
+            {{ user.username }}
+          </p>
+          <p class="text-gray-600 flex items-center">
+            <i class="pi pi-envelope text-blue-400 mr-2"></i>
+            {{ user.email }}
+          </p>
+          <p class="text-gray-600 flex items-center">
+            <i class="pi pi-map-marker text-blue-400 mr-2"></i>
+            {{ user.address.city }}
+          </p>
+        </div>
+      </div>
+    </p-card>
+  </div>
+</div>
