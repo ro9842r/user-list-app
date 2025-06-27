@@ -113,3 +113,9 @@
 .mb-6 {
   margin: 10px;
 }
+
+.space-avatar {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
